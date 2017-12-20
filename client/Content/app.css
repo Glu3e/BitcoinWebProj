@@ -1,0 +1,21 @@
+/* Custom CSS goes here */
+body {
+  padding-bottom: 500px;
+  }
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.banner {
+ margin: 0;
+ position: relative;
+ width: 100%;
+ height: 100%;
+}
+
+.marketHome {
+  padding-top: 50px;
+  padding-left: 20px;
+}
+

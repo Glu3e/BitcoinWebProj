@@ -1,0 +1,23 @@
+<% include ../partials/header.ejs %>
+<div style="padding-left:7px;">
+ <h1><%= title %></h1>
+</div>
+
+<script> 
+const ws = new WebSocket('wss://ws.blockchain.info/inv');
+//
+  ws.onopen = function() {
+      ws.send(JSON.stringify({"op":"unconfirmed_sub"}));
+  }
+ws.onmessage = function (msg) {
+    var res = JSON.parse(msg.data);
+    var amount = res.x.out[0].value;
+    var convertAmount = amount / 100000000;
+    //const $ = cheerio.load('<div id= "coinTransactions">, <p>+ convertAmount +</p>, </div>');
+    $('#coinTransactions').prepend("<p>"+ convertAmount +"</p>")
+}
+</script>
+
+<div id=coinTransactions>
+</div>
+<% include ../partials/footer.ejs %>
